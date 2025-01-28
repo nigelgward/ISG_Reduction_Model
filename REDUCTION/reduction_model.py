@@ -2,7 +2,7 @@ import os
 import math
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from feature_extractor import FeatureExtractor
+from .feature_extractor import FeatureExtractor
 
 
 class Reduction:
@@ -16,24 +16,25 @@ class Reduction:
 
         Args:
             audios - A list containing the path to wav files that will be processed using HuBERT.
+            save - A flag that allows the features extracted to be saved in the same directory as the audio processed
+                with the same name except having `features` appended.
 
         Returns:
-            hubert_features - A dictionary containing the 12th layer of hubert features for every audio processed. 
+            hubert_features - A list containing the 12th layer of hubert features for every audio processed. 
         
         """
-        hubert_features = {}
+        hubert_features = []
         for audio in audios:
             path = os.path.join(os.getcwd(),audio)
 
             features_predicted = self.hubert.get_transformation_layers(path)
-
             #Features predicted produces 12 layers of 20 ms frames of 768 features, we choose to use the 12th layer
-            hubert_features[audio] = features_predicted[-1]
+            hubert_features.append(features_predicted[-1])
 
             if save:
                 filepath = audio.replace(".wav","_features.npy")
                 filenp = open(filepath,"bw+")
-                features_numpy = hubert_features[audio].numpy()
+                features_numpy = features_predicted[-1].numpy()
                 np.save(filenp,features_numpy)
 
         return hubert_features
@@ -43,13 +44,13 @@ class Reduction:
         on the tab-delimited txt.
 
             Args:
-                X - A list of HuBERT frames utilized to fitting the Linear Regression model.
+                X - A list of HuBERT frame lists utilized to fitting the Linear Regression model.
                 labels - A list of tab-delimited text file that contains the channel,start and end time, and reduction values for the utterances
                          in the training data.
             Returns:
                 None
             Exceptions:
-                Invalid Arguments - Raised when X and y don't match in length, or when the file opened by y is in an incorrect format
+                ValueError - Raised when X and y don't match in length
         """
         if len(X) != len(y):
             raise ValueError("The lists of audio frame data and text files must match in length.")
@@ -70,18 +71,18 @@ class Reduction:
 
                 #If Mono, the channel selected will be 0
                 if channel == "Right":
-                    x = 1
+                    track = 1
                 else:
-                    x = 0
+                    track = 0
 
                 j = math.floor(float(start)*50) #Sets the index to the beginning of the labeled section
-                while j <= math.floor(float(end)*50) and j < len(X[i][x]): #Iterates through each frame relating to the labeled section
-                    training_data.append(X[i][x][j])
+                while j <= math.floor(float(end)*50) and j < len(X[i][track]): #Iterates through each frame relating to the labeled section
+                    training_data.append(X[i][track][j])
                     training_labels.append(label)
-                    i += 1
+                    j += 1
 
 
-        self.regression_model.fit(X,y)
+        self.regression_model.fit(training_data,training_labels)
         return
 
     def default_fit(self):
@@ -133,12 +134,13 @@ class Reduction:
         """ Predicts the reduction value per frame for a given list of HuBERT features corresponding to an audio.
 
             Args:
-                audio_features - A list of HuBERT features extracted from an audio.
+                audio_features - A list of frames of HuBERT features extracted from an audio. Since there only frames, it only supports one track.
             Returns:
                 predictions - A list of reduction values estimated for each 20 ms HuBERT frame.
         """
         predictions = []
         for frame in audio_features:
+            frame = np.array(frame).reshape(1,-1)
             predictions.append(self.regression_model.predict(frame)[0])
         return predictions
 
@@ -178,20 +180,21 @@ class Reduction:
             
             frame_predictions = []
             for frame in X:
+                frame = np.array(frame).reshape(1,-1)
                 frame_predictions.append(self.regression_model.predict(frame)[0])
             
             predictions.append(np.mean(frame_predictions))
 
         return predictions
     
-    def calculate_overestimates(self,utterances,predicted):
+    def calculate_overestimates(self,predicted,utterances):
         """ Returns the list of differences sorted by the highest overestimates accompanied with the timeframe for failure analysis.
 
             Args:
                 utterances - A path to tab-delimited text file that contains the channel, start and end times for the utterance to be predicted.
                 predicted - A list of predicted reduction values from the model
             Returns:
-                overestimates - A list ordered of highest overestimates
+                overestimates - A list ordered of highest overestimates between the actual and predicted reduction values.
 
         """
         labels = []
@@ -210,14 +213,14 @@ class Reduction:
         overestimates = np.sort(labels-predicted)
         return overestimates
     
-    def calculate_underestimates(self,utterances,predicted):
+    def calculate_underestimates(self,predicted,utterances):
         """ Returns the list of differences sorted by the highest overestimates accompanied with the timeframe for failure analysis.
 
             Args:
-                utterances - 
-                predicted -
+                utterances - A path to tab-delimited text file that contains the channel, start and end times for the utterance to be predicted.
+                predicted - A list of predicted reduction values from the model
             Returns:
-                overestimates -
+                underestimates - A list ordered of highest underestimates between the actual and predicted reduction values.
 
         """
         labels = []
