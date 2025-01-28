@@ -61,7 +61,7 @@ class Reduction:
 
             for line in filetxt:
                 try:
-                    _,channel,start,end,label = line.split()
+                    channel,start,end,label = line.split()
                 except: #Handling for erroneous format
                     incomplete += 1
                     continue
@@ -107,7 +107,7 @@ class Reduction:
 
             for line in filetxt:
                 try:
-                    _,channel,start,end,label = line.split()
+                    channel,start,end,label = line.split()
                 except: #Handling for erroneous format
                     incomplete += 1
                     continue
@@ -159,7 +159,7 @@ class Reduction:
         for line in filetxt:
 
             try:
-                _,channel,start,end,not_used_label = line.split() #TODO Fix the _ for the term "Reduction" and for the labels in data to be predicted
+                channel,start,end,_ = line.split() #TODO Fix the _ for the term "Reduction" and for the labels in data to be predicted
             except: #Handling for erroneous format
                 incomplete += 1
                 continue
@@ -198,7 +198,7 @@ class Reduction:
         filetxt = open(utterances)
         for line in filetxt:
             try:
-                _0 ,_1, _2 ,_3, label = line.split() #TODO Fix the _ for the term "Reduction" and for the labels in data to be predicted
+                _0 ,_1, _2 , label = line.split() #TODO Fix the _ for the labels in data to be predicted
             except: #Handling for erroneous format
                 incomplete += 1
                 continue
@@ -224,7 +224,7 @@ class Reduction:
         filetxt = open(utterances)
         for line in filetxt:
             try:
-                _0 ,_1, _2 ,_3, label = line.split() #TODO Fix the _ for the term "Reduction" and for the labels in data to be predicted
+                _0 ,_1, _2 , label = line.split() #TODO Fix the _ for the labels in data to be predicted
             except: #Handling for erroneous format
                 incomplete += 1
                 continue

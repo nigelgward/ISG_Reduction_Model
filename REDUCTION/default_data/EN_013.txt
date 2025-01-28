@@ -1,369 +1,369 @@
-Reduction Left		9.36	9.97	1
-Reduction Left		10.035	14.605	0
-Reduction Left		16.035	17.205	2
-Reduction Left		20.67	22.0	2
-Reduction Left		22.065	22.905	1
-Reduction Left		24.08	25.0	0 
-Reduction Left		36.725	37.535	1
-Reduction Left		38.55	39.57	1
-Reduction Left		40.49	41.06	1
-Reduction Left		41.11	41.61	2
-Reduction Left		45.895	46.585	1
-Reduction Left		46.68	49.01	1
-Reduction Left		54.495	55.045	2
-Reduction Left		60.555	62.045	1
-Reduction Left		62.1	62.78	2
-Reduction Left		63.865	65.555	1
-Reduction Left		71.085	73.155	1
-Reduction Left		87.85	90.71	1
-Reduction Left		90.79	92.11	1
-Reduction Left		93.14	94.77	2
-Reduction Left		94.77	95.44	1
-Reduction Left		95.485	95.975	0
-Reduction Left		96.37	98.11	0
-Reduction Left		98.185	99.985	1
-Reduction Left		100.095	100.595	3
-Reduction Left		101.045	101.525	2
-Reduction Left		101.73	103.0	1
-Reduction Left		103.0	103.435	2
-Reduction Left		103.495	105.465	1
-Reduction Left		106.02	106.9	1
-Reduction Left		106.95	107.77	1
-Reduction Left		107.835	108.565	1
-Reduction Left		108.62	109.28	2
-Reduction Left		110.53	111.35	1
-Reduction Left		111.76	112.51	2
-Reduction Left		112.51	113.54	1
-Reduction Left		113.595	114.255	2
-Reduction Left		114.645	115.265	0
-Reduction Left		115.455	116.195	2
-Reduction Left		116.195	117.815	1
-Reduction Left		117.885	119.635	1
-Reduction Left		132.076	133.269	0
-Reduction Left		136.029	136.406	1
-Reduction Left		141.599	142.002	1
-Reduction Left		147.308	147.599	2
-Reduction Left		147.599	148.193	0
-Reduction Left		160.902	161.208	0
-Reduction Left		173.22	173.806	1
-Reduction Left		173.811	174.38	0
-Reduction Left		175.0	175.282	0
-Reduction Left		175.285	176.18	1
-Reduction Left		177.006	177.629	0
-Reduction Left		177.631	178.289	1
-Reduction Left		181.172	181.823	1
-Reduction Left		181.864	183.773	1
-Reduction Left		211.229	213.108	1
-Reduction Left		214.082	214.736	1
-Reduction Left		227.411	227.689	1
-Reduction Left		231.086	231.438	1
-Reduction Left		232.232	232.477	1
-Reduction Left		243.069	245.058	1
-Reduction Left		248.593	249.877	2
-Reduction Left		253.848	254.275	2
-Reduction Left		254.337	255.68	1
-Reduction Left		264.621	266.451	2
-Reduction Left		266.658	267.518	1
-Reduction Left		267.524	267.807	2
-Reduction Left		267.809	268.399	1
-Reduction Left		277.836	278.388	1
-Reduction Left		281.318	281.672	2
-Reduction Left		281.683	282.891	1
-Reduction Left		282.902	283.034	2
-Reduction Left		283.044	284.531	1
-Reduction Left		284.547	286.401	1
-Reduction Left		301.964	302.269	0
-Reduction Left		302.855	303.647	2
-Reduction Left		303.647	305.334	1
-Reduction Left		308.491	309.799	1
-Reduction Left		309.809	310.199	2
-Reduction Left		310.321	310.948	1
-Reduction Left		310.953	311.486	2
-Reduction Left		311.496	312.863	1
-Reduction Left		314.499	314.847	2
-Reduction Left		314.869	315.296	1
-Reduction Left		315.507	316.372	1
-Reduction Left		316.378	316.621	2
-Reduction Left		316.631	316.994	1
-Reduction Left		316.994	317.337	2
-Reduction Left		317.339	318.644	1
-Reduction Left		318.793	320.096	1
-Reduction Left		322.542	323.629	1
-Reduction Left		323.634	323.875	2
-Reduction Left		323.88	325.072	1
-Reduction Left		325.093	325.094	2
-Reduction Left		325.094	325.612	2
-Reduction Left		325.869	326.309	2
-Reduction Left		326.337	327.082	1
-Reduction Left		327.102	327.448	2
-Reduction Left		327.491	328.026	2
-Reduction Left		328.083	328.54	1
-Reduction Left		329.226	329.982	0
-Reduction Left		330.694	331.121	3
-Reduction Left		331.124	331.561	2
-Reduction Left		332.15	332.442	2
-Reduction Left		333.207	334.566	1
-Reduction Left		334.931	336.894	1
-Reduction Left		336.94	337.874	1
-Reduction Left		337.874	338.25	2
-Reduction Left		338.982	340.274	1
-Reduction Left		340.285	340.712	2
-Reduction Left		340.731	340.858	0
-Reduction Left		340.858	341.231	2
-Reduction Left		341.239	341.864	2
-Reduction Left		341.902	342.161	1
-Reduction Left		342.17	342.474	2
-Reduction Left		342.639	342.642	1
-Reduction Left		342.642	343.699	1
-Reduction Left		343.699	344.68	2
-Reduction Left		345.237	347.066	1
-Reduction Left		347.896	348.474	0
-Reduction Left		348.488	349.491	1
-Reduction Left		354.78	355.212	1
-Reduction Left		365.81	366.526	2
-Reduction Left		368.002	368.496	1
-Reduction Left		368.496	368.869	2
-Reduction Left		368.869	369.074	1
-Reduction Left		369.504	369.999	2
-Reduction Left		369.999	370.283	2
-Reduction Right		2.79	4.47	2
-Reduction Right		5.55	7.61	1
-Reduction Right		7.65	8.95	2
-Reduction Right		15.06	15.49	2
-Reduction Right		15.535	15.965	1
-Reduction Right		16.0	16.43	1
-Reduction Right		18.22	18.52	2
-Reduction Right		19.01	19.53	2
-Reduction Right		19.56	20.62	1
-Reduction Right		23.225	23.875	2
-Reduction Right		25.115	25.705	2
-Reduction Right		25.78	26.46	1
-Reduction Right		26.61	27.61	3
-Reduction Right		28.1	28.87	1
-Reduction Right		28.955	29.505	2
-Reduction Right		29.525	30.045	0
-Reduction Right		30.06	30.96	2
-Reduction Right		31.015	32.095	1
-Reduction Right		32.17	32.78	2
-Reduction Right		33.515	34.145	2
-Reduction Right		34.26	35.37	0
-Reduction Right		35.425	36.725	2
-Reduction Right		37.58	38.48	0
-Reduction Right		39.06	39.68	1
-Reduction Right		39.72	40.38	2
-Reduction Right		41.865	42.505	3
-Reduction Right		42.535	42.935	2
-Reduction Right		42.945	43.995	1
-Reduction Right		44.645	45.205	2
-Reduction Right		46.545	47.185	2
-Reduction Right		48.685	50.175	0
-Reduction Right		51.04	51.78	0
-Reduction Right		51.83	52.78	3
-Reduction Right		52.815	54.435	1
-Reduction Right		55.115	55.695	2
-Reduction Right		56.83	57.22	1
-Reduction Right		57.265	57.785	2
-Reduction Right		58.685	60.705	2
-Reduction Right		62.83	63.78	2
-Reduction Right		64.645	67.895	0
-Reduction Right		67.98	68.83	2
-Reduction Right		68.91	69.7	1
-Reduction Right		69.795	70.555	2
-Reduction Right		73.29	75.12	2
-Reduction Right		75.225	76.465	1
-Reduction Right		77.145	78.175	2
-Reduction Right		78.68	79.845	0
-Reduction Right		79.845	80.575	2
-Reduction Right		80.585	80.865	0
-Reduction Right		80.905	81.435	2
-Reduction Right		81.9	82.94	1
-Reduction Right		83.74	85.12	1
-Reduction Right		85.53	86.765	2
-Reduction Right		86.765	87.515	0
-Reduction Right		99.14	99.58	0
-Reduction Right		120.434	120.769	0
-Reduction Right		120.784	121.122	1
-Reduction Right		121.138	121.507	2
-Reduction Right		121.638	121.846	0
-Reduction Right		121.861	122.368	1
-Reduction Right		122.376	122.637	2
-Reduction Right		122.66	123.775	1
-Reduction Right		123.791	124.291	2
-Reduction Right		124.307	124.684	0
-Reduction Right		125.23	125.384	0
-Reduction Right		125.445	125.86	2
-Reduction Right		125.876	126.069	1
-Reduction Right		126.607	127.322	2
-Reduction Right		127.614	128.053	1
-Reduction Right		128.261	129.345	1
-Reduction Right		129.345	130.114	2
-Reduction Right		130.114	131.522	1
-Reduction Right		133.299	133.869	0
-Reduction Right		134.091	136.229	1
-Reduction Right		136.684	137.032	1
-Reduction Right		137.04	137.479	2
-Reduction Right		137.479	137.875	0
-Reduction Right		138.447	139.784	1
-Reduction Right		140.366	141.038	1
-Reduction Right		141.603	141.679	1
-Reduction Right		142.364	142.805	0
-Reduction Right		142.814	144.564	1
-Reduction Right		144.667	147.026	1
-Reduction Right		149.541	150.017	1
-Reduction Right		150.549	150.885	1
-Reduction Right		156.37	156.723	2
-Reduction Right		156.944	157.194	1
-Reduction Right		157.39	157.855	1
-Reduction Right		158.311	158.664	2
-Reduction Right		158.776	159.117	0
-Reduction Right		159.164	159.341	2
-Reduction Right		159.341	160.329	1
-Reduction Right		160.91	161.71	1
-Reduction Right		161.772	162.213	1
-Reduction Right		163.011	163.955	1
-Reduction Right		163.958	164.22	2
-Reduction Right		164.223	164.808	0
-Reduction Right		165.225	165.461	2
-Reduction Right		165.461	165.634	1
-Reduction Right		165.634	166.334	1
-Reduction Right		166.373	167.037	0
-Reduction Right		167.77	168.164	1
-Reduction Right		168.243	168.494	2
-Reduction Right		168.496	168.621	1
-Reduction Right		168.633	169.173	1
-Reduction Right		169.348	169.816	1
-Reduction Right		170.004	170.514	0
-Reduction Right		170.515	171.262	1
-Reduction Right		171.284	171.931	1
-Reduction Right		172.066	172.638	0
-Reduction Right		178.705	179.045	1
-Reduction Right		179.217	179.551	3
-Reduction Right		179.552	179.842	1
-Reduction Right		179.855	180.141	1
-Reduction Right		180.145	180.568	2
-Reduction Right		183.984	185.036	1
-Reduction Right		185.131	186.212	0
-Reduction Right		186.493	187.104	0
-Reduction Right		188.295	188.403	1
-Reduction Right		188.406	188.745	2
-Reduction Right		188.749	188.902	2
-Reduction Right		188.903	189.49	1
-Reduction Right		189.495	189.995	0
-Reduction Right		191.013	191.569	1
-Reduction Right		191.574	191.91	2
-Reduction Right		191.921	192.788	1
-Reduction Right		192.818	193.351	1
-Reduction Right		193.382	193.932	0
-Reduction Right		193.958	194.521	1
-Reduction Right		195.279	195.712	0
-Reduction Right		195.723	197.016	1
-Reduction Right		197.042	197.744	1
-Reduction Right		198.499	198.971	2
-Reduction Right		198.978	199.551	1
-Reduction Right		199.619	200.856	1
-Reduction Right		204.051	204.236	2
-Reduction Right		204.241	205.893	1
-Reduction Right		206.394	206.753	2
-Reduction Right		206.89	207.346	2
-Reduction Right		207.482	207.901	2
-Reduction Right		207.916	208.364	1
-Reduction Right		208.368	208.877	3
-Reduction Right		208.891	209.671	1
-Reduction Right		209.671	209.856	3
-Reduction Right		209.856	210.932	1
-Reduction Right		213.107	213.333	2
-Reduction Right		213.341	214.145	1
-Reduction Right		214.89	215.863	1
-Reduction Right		215.863	219.836	1
-Reduction Right		219.852	221.989	1
-Reduction Right		222.469	223.887	1
-Reduction Right		223.91	225.797	1
-Reduction Right		225.954	226.321	3
-Reduction Right		226.323	227.341	1
-Reduction Right		227.925	228.251	1
-Reduction Right		228.75	228.889	2
-Reduction Right		228.896	229.36	1
-Reduction Right		229.36	229.63	2
-Reduction Right		229.636	230.124	1
-Reduction Right		231.358	231.88	3
-Reduction Right		231.886	232.862	1
-Reduction Right		232.899	233.201	1
-Reduction Right		234.356	235.756	1
-Reduction Right		235.862	236.442	1
-Reduction Right		238.308	238.655	1
-Reduction Right		239.162	239.471	1
-Reduction Right		239.494	239.727	2
-Reduction Right		239.732	241.195	1
-Reduction Right		241.196	243.045	1
-Reduction Right		245.08	246.834	1
-Reduction Right		246.837	247.564	0
-Reduction Right		248.555	249.658	1
-Reduction Right		252.032	252.432	0
-Reduction Right		252.553	253.588	1
-Reduction Right		254.275	254.277	2
-Reduction Right		255.807	256.869	0
-Reduction Right		256.95	257.928	1
-Reduction Right		257.945	258.434	0
-Reduction Right		258.945	260.826	1
-Reduction Right		260.937	261.818	1
-Reduction Right		261.837	262.691	2
-Reduction Right		262.691	263.54	1
-Reduction Right		268.388	269.613	1
-Reduction Right		269.91	270.497	2
-Reduction Right		270.513	271.037	1
-Reduction Right		271.039	271.32	2
-Reduction Right		271.329	272.321	1
-Reduction Right		272.331	273.388	1
-Reduction Right		273.918	275.951	1
-Reduction Right		276.015	276.902	1
-Reduction Right		276.926	277.299	2
-Reduction Right		277.318	277.718	1
-Reduction Right		278.41	279.077	1
-Reduction Right		279.077	279.501	3
-Reduction Right		279.531	281.231	1
-Reduction Right		287.136	287.434	0
-Reduction Right		287.445	287.748	2
-Reduction Right		287.759	289.169	1
-Reduction Right		289.188	290.182	1
-Reduction Right		290.996	291.423	1
-Reduction Right		291.426	291.672	3
-Reduction Right		291.683	293.018	1
-Reduction Right		293.031	293.24	2
-Reduction Right		293.296	293.804	0
-Reduction Right		295.431	296.264	1
-Reduction Right		296.264	296.572	2
-Reduction Right		296.582	297.753	1
-Reduction Right		297.753	298.853	3
-Reduction Right		298.856	299.121	1
-Reduction Right		299.121	299.31	2
-Reduction Right		300.142	300.502	3
-Reduction Right		300.502	300.718	2
-Reduction Right		300.726	301.753	1
-Reduction Right		302.132	303.105	1
-Reduction Right		303.899	304.29	1
-Reduction Right		304.991	305.764	1
-Reduction Right		305.828	306.715	1
-Reduction Right		307.483	307.875	2
-Reduction Right		331.083	331.521	2
-Reduction Right		331.526	332.345	1
-Reduction Right		349.745	350.023	2
-Reduction Right		350.045	351.102	1
-Reduction Right		351.442	352.01	2
-Reduction Right		353.074	354.047	1
-Reduction Right		354.051	354.734	2
-Reduction Right		355.172	355.631	1
-Reduction Right		355.642	356.266	2
-Reduction Right		356.272	356.82	2
-Reduction Right		356.82	357.712	2
-Reduction Right		357.724	358.261	0
-Reduction Right		358.264	358.494	0
-Reduction Right		359.215	359.426	1
-Reduction Right		359.426	360.31	2
-Reduction Right		360.382	360.718	2
-Reduction Right		360.796	361.096	0
-Reduction Right		361.618	361.974	0
-Reduction Right		361.977	362.28	1
-Reduction Right		362.283	362.486	2
-Reduction Right		362.493	363.115	1
-Reduction Right		363.115	363.81	0
-Reduction Right		365.569	365.807	1
+Left		9.36	9.97	1
+Left		10.035	14.605	0
+Left		16.035	17.205	2
+Left		20.67	22.0	2
+Left		22.065	22.905	1
+Left		24.08	25.0	0 
+Left		36.725	37.535	1
+Left		38.55	39.57	1
+Left		40.49	41.06	1
+Left		41.11	41.61	2
+Left		45.895	46.585	1
+Left		46.68	49.01	1
+Left		54.495	55.045	2
+Left		60.555	62.045	1
+Left		62.1	62.78	2
+Left		63.865	65.555	1
+Left		71.085	73.155	1
+Left		87.85	90.71	1
+Left		90.79	92.11	1
+Left		93.14	94.77	2
+Left		94.77	95.44	1
+Left		95.485	95.975	0
+Left		96.37	98.11	0
+Left		98.185	99.985	1
+Left		100.095	100.595	3
+Left		101.045	101.525	2
+Left		101.73	103.0	1
+Left		103.0	103.435	2
+Left		103.495	105.465	1
+Left		106.02	106.9	1
+Left		106.95	107.77	1
+Left		107.835	108.565	1
+Left		108.62	109.28	2
+Left		110.53	111.35	1
+Left		111.76	112.51	2
+Left		112.51	113.54	1
+Left		113.595	114.255	2
+Left		114.645	115.265	0
+Left		115.455	116.195	2
+Left		116.195	117.815	1
+Left		117.885	119.635	1
+Left		132.076	133.269	0
+Left		136.029	136.406	1
+Left		141.599	142.002	1
+Left		147.308	147.599	2
+Left		147.599	148.193	0
+Left		160.902	161.208	0
+Left		173.22	173.806	1
+Left		173.811	174.38	0
+Left		175.0	175.282	0
+Left		175.285	176.18	1
+Left		177.006	177.629	0
+Left		177.631	178.289	1
+Left		181.172	181.823	1
+Left		181.864	183.773	1
+Left		211.229	213.108	1
+Left		214.082	214.736	1
+Left		227.411	227.689	1
+Left		231.086	231.438	1
+Left		232.232	232.477	1
+Left		243.069	245.058	1
+Left		248.593	249.877	2
+Left		253.848	254.275	2
+Left		254.337	255.68	1
+Left		264.621	266.451	2
+Left		266.658	267.518	1
+Left		267.524	267.807	2
+Left		267.809	268.399	1
+Left		277.836	278.388	1
+Left		281.318	281.672	2
+Left		281.683	282.891	1
+Left		282.902	283.034	2
+Left		283.044	284.531	1
+Left		284.547	286.401	1
+Left		301.964	302.269	0
+Left		302.855	303.647	2
+Left		303.647	305.334	1
+Left		308.491	309.799	1
+Left		309.809	310.199	2
+Left		310.321	310.948	1
+Left		310.953	311.486	2
+Left		311.496	312.863	1
+Left		314.499	314.847	2
+Left		314.869	315.296	1
+Left		315.507	316.372	1
+Left		316.378	316.621	2
+Left		316.631	316.994	1
+Left		316.994	317.337	2
+Left		317.339	318.644	1
+Left		318.793	320.096	1
+Left		322.542	323.629	1
+Left		323.634	323.875	2
+Left		323.88	325.072	1
+Left		325.093	325.094	2
+Left		325.094	325.612	2
+Left		325.869	326.309	2
+Left		326.337	327.082	1
+Left		327.102	327.448	2
+Left		327.491	328.026	2
+Left		328.083	328.54	1
+Left		329.226	329.982	0
+Left		330.694	331.121	3
+Left		331.124	331.561	2
+Left		332.15	332.442	2
+Left		333.207	334.566	1
+Left		334.931	336.894	1
+Left		336.94	337.874	1
+Left		337.874	338.25	2
+Left		338.982	340.274	1
+Left		340.285	340.712	2
+Left		340.731	340.858	0
+Left		340.858	341.231	2
+Left		341.239	341.864	2
+Left		341.902	342.161	1
+Left		342.17	342.474	2
+Left		342.639	342.642	1
+Left		342.642	343.699	1
+Left		343.699	344.68	2
+Left		345.237	347.066	1
+Left		347.896	348.474	0
+Left		348.488	349.491	1
+Left		354.78	355.212	1
+Left		365.81	366.526	2
+Left		368.002	368.496	1
+Left		368.496	368.869	2
+Left		368.869	369.074	1
+Left		369.504	369.999	2
+Left		369.999	370.283	2
+Right		2.79	4.47	2
+Right		5.55	7.61	1
+Right		7.65	8.95	2
+Right		15.06	15.49	2
+Right		15.535	15.965	1
+Right		16.0	16.43	1
+Right		18.22	18.52	2
+Right		19.01	19.53	2
+Right		19.56	20.62	1
+Right		23.225	23.875	2
+Right		25.115	25.705	2
+Right		25.78	26.46	1
+Right		26.61	27.61	3
+Right		28.1	28.87	1
+Right		28.955	29.505	2
+Right		29.525	30.045	0
+Right		30.06	30.96	2
+Right		31.015	32.095	1
+Right		32.17	32.78	2
+Right		33.515	34.145	2
+Right		34.26	35.37	0
+Right		35.425	36.725	2
+Right		37.58	38.48	0
+Right		39.06	39.68	1
+Right		39.72	40.38	2
+Right		41.865	42.505	3
+Right		42.535	42.935	2
+Right		42.945	43.995	1
+Right		44.645	45.205	2
+Right		46.545	47.185	2
+Right		48.685	50.175	0
+Right		51.04	51.78	0
+Right		51.83	52.78	3
+Right		52.815	54.435	1
+Right		55.115	55.695	2
+Right		56.83	57.22	1
+Right		57.265	57.785	2
+Right		58.685	60.705	2
+Right		62.83	63.78	2
+Right		64.645	67.895	0
+Right		67.98	68.83	2
+Right		68.91	69.7	1
+Right		69.795	70.555	2
+Right		73.29	75.12	2
+Right		75.225	76.465	1
+Right		77.145	78.175	2
+Right		78.68	79.845	0
+Right		79.845	80.575	2
+Right		80.585	80.865	0
+Right		80.905	81.435	2
+Right		81.9	82.94	1
+Right		83.74	85.12	1
+Right		85.53	86.765	2
+Right		86.765	87.515	0
+Right		99.14	99.58	0
+Right		120.434	120.769	0
+Right		120.784	121.122	1
+Right		121.138	121.507	2
+Right		121.638	121.846	0
+Right		121.861	122.368	1
+Right		122.376	122.637	2
+Right		122.66	123.775	1
+Right		123.791	124.291	2
+Right		124.307	124.684	0
+Right		125.23	125.384	0
+Right		125.445	125.86	2
+Right		125.876	126.069	1
+Right		126.607	127.322	2
+Right		127.614	128.053	1
+Right		128.261	129.345	1
+Right		129.345	130.114	2
+Right		130.114	131.522	1
+Right		133.299	133.869	0
+Right		134.091	136.229	1
+Right		136.684	137.032	1
+Right		137.04	137.479	2
+Right		137.479	137.875	0
+Right		138.447	139.784	1
+Right		140.366	141.038	1
+Right		141.603	141.679	1
+Right		142.364	142.805	0
+Right		142.814	144.564	1
+Right		144.667	147.026	1
+Right		149.541	150.017	1
+Right		150.549	150.885	1
+Right		156.37	156.723	2
+Right		156.944	157.194	1
+Right		157.39	157.855	1
+Right		158.311	158.664	2
+Right		158.776	159.117	0
+Right		159.164	159.341	2
+Right		159.341	160.329	1
+Right		160.91	161.71	1
+Right		161.772	162.213	1
+Right		163.011	163.955	1
+Right		163.958	164.22	2
+Right		164.223	164.808	0
+Right		165.225	165.461	2
+Right		165.461	165.634	1
+Right		165.634	166.334	1
+Right		166.373	167.037	0
+Right		167.77	168.164	1
+Right		168.243	168.494	2
+Right		168.496	168.621	1
+Right		168.633	169.173	1
+Right		169.348	169.816	1
+Right		170.004	170.514	0
+Right		170.515	171.262	1
+Right		171.284	171.931	1
+Right		172.066	172.638	0
+Right		178.705	179.045	1
+Right		179.217	179.551	3
+Right		179.552	179.842	1
+Right		179.855	180.141	1
+Right		180.145	180.568	2
+Right		183.984	185.036	1
+Right		185.131	186.212	0
+Right		186.493	187.104	0
+Right		188.295	188.403	1
+Right		188.406	188.745	2
+Right		188.749	188.902	2
+Right		188.903	189.49	1
+Right		189.495	189.995	0
+Right		191.013	191.569	1
+Right		191.574	191.91	2
+Right		191.921	192.788	1
+Right		192.818	193.351	1
+Right		193.382	193.932	0
+Right		193.958	194.521	1
+Right		195.279	195.712	0
+Right		195.723	197.016	1
+Right		197.042	197.744	1
+Right		198.499	198.971	2
+Right		198.978	199.551	1
+Right		199.619	200.856	1
+Right		204.051	204.236	2
+Right		204.241	205.893	1
+Right		206.394	206.753	2
+Right		206.89	207.346	2
+Right		207.482	207.901	2
+Right		207.916	208.364	1
+Right		208.368	208.877	3
+Right		208.891	209.671	1
+Right		209.671	209.856	3
+Right		209.856	210.932	1
+Right		213.107	213.333	2
+Right		213.341	214.145	1
+Right		214.89	215.863	1
+Right		215.863	219.836	1
+Right		219.852	221.989	1
+Right		222.469	223.887	1
+Right		223.91	225.797	1
+Right		225.954	226.321	3
+Right		226.323	227.341	1
+Right		227.925	228.251	1
+Right		228.75	228.889	2
+Right		228.896	229.36	1
+Right		229.36	229.63	2
+Right		229.636	230.124	1
+Right		231.358	231.88	3
+Right		231.886	232.862	1
+Right		232.899	233.201	1
+Right		234.356	235.756	1
+Right		235.862	236.442	1
+Right		238.308	238.655	1
+Right		239.162	239.471	1
+Right		239.494	239.727	2
+Right		239.732	241.195	1
+Right		241.196	243.045	1
+Right		245.08	246.834	1
+Right		246.837	247.564	0
+Right		248.555	249.658	1
+Right		252.032	252.432	0
+Right		252.553	253.588	1
+Right		254.275	254.277	2
+Right		255.807	256.869	0
+Right		256.95	257.928	1
+Right		257.945	258.434	0
+Right		258.945	260.826	1
+Right		260.937	261.818	1
+Right		261.837	262.691	2
+Right		262.691	263.54	1
+Right		268.388	269.613	1
+Right		269.91	270.497	2
+Right		270.513	271.037	1
+Right		271.039	271.32	2
+Right		271.329	272.321	1
+Right		272.331	273.388	1
+Right		273.918	275.951	1
+Right		276.015	276.902	1
+Right		276.926	277.299	2
+Right		277.318	277.718	1
+Right		278.41	279.077	1
+Right		279.077	279.501	3
+Right		279.531	281.231	1
+Right		287.136	287.434	0
+Right		287.445	287.748	2
+Right		287.759	289.169	1
+Right		289.188	290.182	1
+Right		290.996	291.423	1
+Right		291.426	291.672	3
+Right		291.683	293.018	1
+Right		293.031	293.24	2
+Right		293.296	293.804	0
+Right		295.431	296.264	1
+Right		296.264	296.572	2
+Right		296.582	297.753	1
+Right		297.753	298.853	3
+Right		298.856	299.121	1
+Right		299.121	299.31	2
+Right		300.142	300.502	3
+Right		300.502	300.718	2
+Right		300.726	301.753	1
+Right		302.132	303.105	1
+Right		303.899	304.29	1
+Right		304.991	305.764	1
+Right		305.828	306.715	1
+Right		307.483	307.875	2
+Right		331.083	331.521	2
+Right		331.526	332.345	1
+Right		349.745	350.023	2
+Right		350.045	351.102	1
+Right		351.442	352.01	2
+Right		353.074	354.047	1
+Right		354.051	354.734	2
+Right		355.172	355.631	1
+Right		355.642	356.266	2
+Right		356.272	356.82	2
+Right		356.82	357.712	2
+Right		357.724	358.261	0
+Right		358.264	358.494	0
+Right		359.215	359.426	1
+Right		359.426	360.31	2
+Right		360.382	360.718	2
+Right		360.796	361.096	0
+Right		361.618	361.974	0
+Right		361.977	362.28	1
+Right		362.283	362.486	2
+Right		362.493	363.115	1
+Right		363.115	363.81	0
+Right		365.569	365.807	1
