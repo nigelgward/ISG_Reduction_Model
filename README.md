@@ -25,7 +25,7 @@ reduction.fit(X=hubert_features,y=['labels.txt'])
 `
 
 
-We provide a default Reduction model that trains based off the recordings and labels completed at ISG.
+We provide a default Reduction model that trains based off the recordings and labels completed at ISG. Before you use this model, download the following zip folder which contains the feature data: https://minersutep-my.sharepoint.com/:u:/g/personal/jvazquez9_miners_utep_edu/EZBhWMViv0lIoTZUha21OkIBN9-KnIca1bXFiFg_FKxR2A?e=LgPqIy&download=1 . Then, extract the zip in the default_data folder under REDUCTION.
 
 2b. To train the default reduction model:
 
