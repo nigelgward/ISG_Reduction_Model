@@ -131,18 +131,21 @@ class Reduction:
         return
 
     def predict(self,audio_features):
-        """ Predicts the reduction value per frame for a given list of HuBERT features corresponding to an audio.
+        """ Predicts the reduction value per frame for a given list of HuBERT features corresponding to a singular audio.
 
             Args:
                 audio_features - A list of frames of HuBERT features extracted from an audio. Since there only frames, it only supports one track.
             Returns:
                 predictions - A list of reduction values estimated for each 20 ms HuBERT frame.
         """
-        predictions = []
-        for frame in audio_features:
-            frame = np.array(frame).reshape(1,-1)
-            predictions.append(self.regression_model.predict(frame)[0])
-        return predictions
+        complete_predictions = []
+        for i in range(len(audio_features)):
+            predictions = []
+            for frame in audio_features[i]:
+                frame = np.array(frame).reshape(1,-1)
+                predictions.append(self.regression_model.predict(frame)[0])
+            complete_predictions.append(predictions)
+        return complete_predictions
 
     def predict_utterances(self,audio_features,utterances):
         """ Predicts the reduction value per utterances based on the given list of HuBERT features. The predicted
