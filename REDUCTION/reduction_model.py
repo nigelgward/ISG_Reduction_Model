@@ -57,6 +57,7 @@ class Reduction:
         
         training_data = []
         training_labels = []
+        incomplete = 0
         for i in range(len(y)):
             filetxt = open(y[i])
 
@@ -98,19 +99,16 @@ class Reduction:
         default_y = []
         default_files = ["EN_006","EN_007","EN_013","EN_033","EN_043",]
         for file in default_files:
-            filenp = open(file+".npy","br")
+            filenp = open("./REDUCTION/default_data/"+file+".npy","br")
 
-            last_layer = None #Load the 12th last_layer, change the range for the wanted last_layer
-            for i in range(12):
-                last_layer = np.load(filenp)
+            last_layer = np.load(filenp) #Load the layer contained in the files which is the 12th layer.
 
-            filetxt = open(file+".txt")
+            filetxt = open("./REDUCTION/default_data/"+file+".txt")
 
             for line in filetxt:
                 try:
                     channel,start,end,label = line.split()
-                except: #Handling for erroneous format
-                    incomplete += 1
+                except: 
                     continue
 
                 label = int(label)
