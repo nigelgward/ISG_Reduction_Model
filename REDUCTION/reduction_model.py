@@ -137,9 +137,9 @@ class Reduction:
                 predictions - A list of reduction values estimated for each 20 ms HuBERT frame.
         """
         complete_predictions = []
-        for i in range(len(audio_features)):
+        for i in range(len(audio_features)): #For every track in the audio features
             predictions = []
-            for frame in audio_features[i]:
+            for frame in audio_features[i]: #For every frame in an utterance region
                 frame = np.array(frame).reshape(1,-1)
                 predictions.append(self.regression_model.predict(frame)[0])
             complete_predictions.append(predictions)
@@ -158,13 +158,14 @@ class Reduction:
         """
         predictions = []
 
+        # TODO Create a copy of the txt with the predicted labels
         filetxt = open(utterances)
         for line in filetxt:
 
             try:
-                channel,start,end,_ = line.split() #TODO Fix the _ for the term "Reduction" and for the labels in data to be predicted
+                channel,start,end = line.split()
             except: #Handling for erroneous format
-                incomplete += 1
+                print(f"Could not handle the following line during prediction:\n {line} The line will be skipped.\n")
                 continue
 
             #If Mono, the channel selected will be 0
@@ -192,51 +193,83 @@ class Reduction:
         """ Returns the list of differences sorted by the highest overestimates accompanied with the timeframe for failure analysis.
 
             Args:
-                utterances - A path to tab-delimited text file that contains the channel, start and end times for the utterance to be predicted.
+                utterances - A path to tab-delimited text file that contains the channel, start and end times, and labels for the utterance to be predicted.
                 predicted - A list of predicted reduction values from the model
             Returns:
                 overestimates - A list ordered of highest overestimates between the actual and predicted reduction values.
 
         """
+        channels = []
+        starts = []
+        ends = []
         labels = []
         filetxt = open(utterances)
+        valid_index = []
+        i = 0
         for line in filetxt:
             try:
-                _0 ,_1, _2 , label = line.split() #TODO Fix the _ for the labels in data to be predicted
+                channel , start, end , label = line.split()
             except: #Handling for erroneous format
-                incomplete += 1
+                print(f"Could not handle the following line while calculating overestimates:\n {line} The line will be skipped.\n")
                 continue
+
+            valid_index.append(i)
+            i += 1
+            channels.append(channel)
+            starts.append(start)
+            ends.append(end)
             labels.append(int(label))
 
         labels = np.array(labels)
         predicted = np.array(predicted)
 
-        overestimates = np.sort(labels-predicted)
-        return overestimates
+        overestimates_index = np.argsort(labels[valid_index]-predicted[valid_index])
+        overestimates = labels[valid_index]-predicted[valid_index]
+
+        #Creates a sorted array of formatted strings based on the overestimates containing the time and utterance for the channel
+        formatted_overestimates = [f"Difference: {overestimates[i]}, Channel: {channels[i]}, Start Time: {starts[i]}, End Time: {ends[i]}, Actual Reduction: {labels[i]}, Predicted Reduction: {predicted[i]}" for i in overestimates_index]
+
+        return formatted_overestimates
     
     def calculate_underestimates(self,predicted,utterances):
         """ Returns the list of differences sorted by the highest overestimates accompanied with the timeframe for failure analysis.
 
             Args:
-                utterances - A path to tab-delimited text file that contains the channel, start and end times for the utterance to be predicted.
+                utterances - A path to tab-delimited text file that contains the channel, start and end times, and labels for the utterance to be predicted.
                 predicted - A list of predicted reduction values from the model
             Returns:
                 underestimates - A list ordered of highest underestimates between the actual and predicted reduction values.
 
         """
+        channels = []
+        starts = []
+        ends = []
         labels = []
         filetxt = open(utterances)
+        valid_index = []
+        i = 0
         for line in filetxt:
             try:
-                _0 ,_1, _2 , label = line.split() #TODO Fix the _ for the labels in data to be predicted
+                channel , start, end , label = line.split()
             except: #Handling for erroneous format
-                incomplete += 1
+                print(f"Could not handle the following line while calculating underestimates:\n {line} The line will be skipped.\n")
                 continue
+
+            valid_index.append(i)
+            i += 1
+            channels.append(channel)
+            starts.append(start)
+            ends.append(end)
             labels.append(int(label))
 
         labels = np.array(labels)
         predicted = np.array(predicted)
 
-        underestimates = np.sort(labels-predicted)[::-1]
-        return underestimates
+        underestimates_index = np.argsort(labels[valid_index]-predicted[valid_index])[::-1]
+        underestimates = labels[valid_index]-predicted[valid_index]
+
+        #Creates a sorted array of formatted strings based on the underestimates containing the time and utterance for the channel
+        formatted_underestimates = [f"Difference: {underestimates[i]}, Channel: {channels[i]}, Start Time: {starts[i]}, End Time: {ends[i]}, Actual Reduction: {labels[i]}, Predicted Reduction: {predicted[i]}" for i in underestimates_index]
+
+        return formatted_underestimates
 
