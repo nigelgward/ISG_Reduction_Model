@@ -2,7 +2,7 @@ import os
 import math
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from .feature_extractor import FeatureExtractor
+from feature_extractor import FeatureExtractor
 
 
 class Reduction:
@@ -11,16 +11,18 @@ class Reduction:
         self.regression_model = LinearRegression()
         self.hubert = FeatureExtractor()
 
+
     def extract(self,audios,save=False):
-        """Extracts the 12th layer of HuBERT Base features for every audio in a given audio list.
+        """Extracts the 12th layer of HuBERT Base features for every audio in the list.
 
         Args:
-            audios - A list containing the path to wav files that will be processed using HuBERT.
-            save - A flag that allows the features extracted to be saved in the same directory as the audio processed
+            audios - A list of paths to wav files that will be processed using HuBERT.
+            save - A flag.  If true, the extracted features are saved as files
+                in the same directory as the audios, 
                 with the same name except having `features` appended.
 
         Returns:
-            hubert_features - A list containing the 12th layer of hubert features for every audio processed. 
+            hubert_features - A list of the 12th layers of hubert features for every audio. 
         
         """
         hubert_features = []
@@ -28,7 +30,8 @@ class Reduction:
             path = os.path.join(os.getcwd(),audio)
 
             features_predicted = self.hubert.get_transformation_layers(path)
-            #Features predicted produces 12 layers of 20 ms frames of 768 features, we choose to use the 12th layer
+            # if hubert_b, 12 layers of 20 ms frames of 768 features
+            # here we take just the 12th later
             hubert_features.append(features_predicted[-1])
 
             if save:
@@ -38,6 +41,7 @@ class Reduction:
                 np.save(filenp,features_numpy)
 
         return hubert_features
+
 
     def fit(self,X,y):
         """ Trains the linear regression model utilizing the features provided by the user whose labels are mapped based
@@ -86,6 +90,7 @@ class Reduction:
         self.regression_model.fit(training_data,training_labels)
         return
 
+
     def default_fit(self):
         """ Trains the linear regression model utilizing the data provided by ISG contained within the default_data directory.
 
@@ -99,11 +104,11 @@ class Reduction:
         default_y = []
         default_files = ["EN_006","EN_007","EN_013","EN_033","EN_043",]
         for file in default_files:
-            filenp = open("./REDUCTION/default_data/"+file+".npy","br")
+            filenp = open("./default_data/"+file+".npy","br")
 
             last_layer = np.load(filenp) #Load the layer contained in the files which is the 12th layer.
 
-            filetxt = open("./REDUCTION/default_data/"+file+".txt")
+            filetxt = open("./default_data/"+file+".txt")
 
             for line in filetxt:
                 try:
@@ -128,13 +133,14 @@ class Reduction:
         self.regression_model.fit(default_X,default_y)
         return
 
+
     def predict(self,audio_features):
-        """ Predicts the reduction value per frame for a given list of HuBERT features corresponding to a singular audio.
+        """ Predicts the reduction value per frame the given lists of HuBERT features.
 
             Args:
-                audio_features - A list of frames of HuBERT features extracted from an audio. Since there only frames, it only supports one track.
+                audio_features -  Lists of per-track features, each a list of frames of HuBERT features extracted from an audio.
             Returns:
-                predictions - A list of reduction values estimated for each 20 ms HuBERT frame.
+                predictions - Two list of reduction values estimated for each 20 ms HuBERT frame, one for each track
         """
         complete_predictions = []
         for i in range(len(audio_features)): #For every track in the audio features
@@ -144,6 +150,7 @@ class Reduction:
                 predictions.append(self.regression_model.predict(frame)[0])
             complete_predictions.append(predictions)
         return complete_predictions
+
 
     def predict_utterances(self,audio_features,utterances):
         """ Predicts the reduction value per utterances based on the given list of HuBERT features. The predicted
@@ -188,6 +195,7 @@ class Reduction:
             predictions.append(np.mean(frame_predictions))
 
         return predictions
+
     
     def calculate_overestimates(self,predicted,utterances):
         """ Returns the list of differences sorted by the highest overestimates accompanied with the timeframe for failure analysis.
@@ -231,6 +239,7 @@ class Reduction:
 
         return formatted_overestimates
     
+
     def calculate_underestimates(self,predicted,utterances):
         """ Returns the list of differences sorted by the highest overestimates accompanied with the timeframe for failure analysis.
 
@@ -242,7 +251,7 @@ class Reduction:
 
         """
         channels = []
-        starts = []
+        starts = []             # 
         ends = []
         labels = []
         filetxt = open(utterances)

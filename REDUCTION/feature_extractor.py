@@ -11,7 +11,7 @@ class FeatureExtractor:
     """
     Uses pytorch to extract transformation layers from an audio file.
     Utilizes either the HuBERT Large, Wav2Vec2.0 Large, or WavLM Large models
-    bundle: String : 'hubert_l' or 'wav2vec_l' or 'wavlm_l' expected
+    bundle: String : 'hubert_b' or 'hubert_l' or 'wav2vec_l' or 'wavlm_l' 
     """
     def __init__(self, bundle='hubert_b'):
         torch.random.manual_seed(0)  # Sets the same random weights everytime the model is run.
