@@ -3,3 +3,15 @@ nigel-changelog.txt~
 REDUCTION/__pycache__/feature_extractor.cpython-313.pyc
 REDUCTION/__pycache__/reduction_model.cpython-313.pyc
 REDUCTION/__pycache__/reduction_model.cpython-39.pyc
+REDUCTION/default_data/EN_006.npy
+REDUCTION/default_data/EN_007.npy
+REDUCTION/default_data/EN_033.npy
+REDUCTION/default_data/EN_013.npy
+REDUCTION/default_data/EN_043.npy
+REDUCTION/default_data/ES_003.txt
+REDUCTION/default_data/ES_003.wav
+REDUCTION/default_data/ES_001.wav
+REDUCTION/default_data/ES_008.wav
+REDUCTION/default_data/ES_012.wav
+REDUCTION/default_data/ES_022.wav
+REDUCTION/default_data/ES_028.wav
