@@ -25,3 +25,15 @@ default npy files, to fix typos in the function calls under 3a and 3b,
 to improve clarity, and to mention the existence of baby-README.md .
 
 8. added the tinytest folder, with 13 seconds of test data
+
+9. added code to dup the predictions to a csv file
+
+# each frame here is 20 ms, so we write it twice to align with the 
+def saveToFile(predictions, filename)
+    ofd = open(filename, 'w')
+    timepoint = 0.10
+    for item in predictions:
+       ofd.write(str(timepoint) + str(item) + "\n")	
+       timepoint = timepoint + 0.10
+       ofd.write(str(timepoint) + str(item) + "\n")	
+       timepoint = timepoint + 0.10

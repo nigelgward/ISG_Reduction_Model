@@ -3,8 +3,8 @@ Supplementary Notes
 #	      	      ISG Reduction Model
 
 This document is a baby-steps explanation of how to use Javier
- Vazquez's ISG_Reduction_Model, released at
- https://github.com/javi-vaz/ISG_Reduction_Model .  It was tested
+Vazquez's ISG_Reduction_Model, released at
+https://github.com/javi-vaz/ISG_Reduction_Model .  It was tested
  using bash in cygwin, and python 3.13.
 
 <!---------------------------------------------------->
@@ -26,11 +26,14 @@ This document is a baby-steps explanation of how to use Javier
 ### Start  python
 
 - cd to the REDUCTION directory inside the ISG_Reduction_Model
-- py       # probably not "python", depending on your configuration
+- py       # probably the newer version and better than "python", depending on your configuration
 - from reduction_model import Reduction
 - reduction = Reduction()   # create the empty model 
 
-  At this point you have a choice.  If you only care about English and are in a hurry, start with the Precomputed Features.  If you also want a Spanish reduction detector, or want to do everything from scratch, pick the From Audio option.
+  At this point you have a choice.  If you only care about English and are in a hurry,
+start with the Precomputed Features.
+If you also want a Spanish reduction detector, or want to do everything from scratch,
+pick the From Audio option.
 
 
 <!---------------------------------------------------->
@@ -64,7 +67,7 @@ This document is a baby-steps explanation of how to use Javier
 
 ### Apply it to a new set of files
 
-testFeats = reduction.extract(['default_data/redu-enun-test.wav'])
+testFeats = reduction.extract(['tinytest/redu-enun-test.wav'])
 testPreds = reduction.predict(testFeats[0])
 plt.plot(testPreds)
 plt.show()
@@ -88,7 +91,7 @@ this computation takes some time, for example, 5 minutes to process a 10 minute 
 
 -  download the annotations and audio files from http://www.cs.utep.edu/nigel/reduction/annotations.zip (792KB)
 - extract this
-- you will then need to ensure that both audio and label files are in default-data
+- you will then need to ensure that both the audio files and label files are in default-data
 -- if English, default_data already includes the annotations themselves, EN_006.txt, etc, so you'll just need to copy the newly extracted labelable-audios/EN*wav to default_data
 -- if Spanish, similarly copy over ES*wav, and in addition ES*txt from the newly-extracted annotations-cao directory, all into default_data	
 
@@ -96,47 +99,27 @@ this computation takes some time, for example, 5 minutes to process a 10 minute 
  the DRAL corpus, which is downloadable from https://www.cs.utep.edu/nigel/dral/, or from 
  the [Linguistic Data Consortium](https://www.ldc.upenn.edu/) under Catalog number LDC2024S08
 
-
-
-- first we compute the features
+###  Compute the features
 
 hubert_features = reduction.extract(['default_data/EN_006.wav','default_data/EN_007.wav', 'default_data/EN_013.wav','default_data/EN_033.wav','default_data/EN_043.wav'])
 
-   as a side note, the dimensions of the result are: number-of-files, 
-
-  this may take 30 to 50 seconds per stero minute of audio
-
-
-   After completion, if you're planning to do further experiments, you can  save the results, for example with
-   
-np.save('default_data/EN_006.npy', hubert_features[0]) 
-
-   These npy files are large: about 20 MB per minute of audio
+   With 30 minutes of audio, this make take 15 minutes or so.  Thus, if you're planning to come back later to do do further experiments, you can save the results, for example with    
+np.save('default_data/EN_006.npy', hubert_features[0]) .  However note that these npy files are large: about 20 MB per minute of audio
 
 
 ### Train The Model 
-
 
 reduction.fit(X=hubert_features, y=['default_data/EN_006.txt', 'default_data/EN_007.txt', 'default_data/EN_013.txt', 'default_data/EN_033.txt', 'default_data/EN_043.txt'])
 
 
 <!---------------------------------------------------->
-### Apply the model
+### Use for Prediction Values over Region
 
+Instead of frame-by-frame predictions, per-region predictions can be obtained like this
 
-This is generally done file-by-file.  For example, to get the
-predictions for file EN_006.wav, after the extract() above,
-
-frame_predictions = reduction.predict(hubert_features[0]) 
-
-This is just an example.  In general you wouldn't test using a file that was included in the training data.  In general your workflow is
-  newfile_features=reduction.extract(['data/new_audio_file.wav'])
-  new_predictions = reduction.fit(X=newfile_features)
-
-### alternatively, you can get per-region predictions using
 region_preds = reduction.predict_utterances(hubert_features[0], default_data/EN_006.txt')
 
-   where the second argument is used just to specify the regions, not the labels
+   where label file (the second argument) is used just to specify the regions, with the labels being ignored.  TThey could be dummy values. 
 
 
 ### to support use for PCA: 
