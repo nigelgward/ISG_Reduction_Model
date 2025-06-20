@@ -113,7 +113,7 @@ reduction.fit(X=hubert_features, y=['default_data/EN_006.txt', 'default_data/EN_
 
 
 <!---------------------------------------------------->
-### Use for Prediction Values over Region
+### Use for Predicting Values over Region
 
 Instead of frame-by-frame predictions, per-region predictions can be obtained like this
 
@@ -137,3 +137,12 @@ then in makeTrackMonster,
    and add a function called lookupRedu() similar to lookupOrComputePitch()
 
 
+<!---------------------------------------------------->
+### Code Structure Notes
+
+The code is not configured as a turnkey application, or even one with
+an elegant API.  This is because we wanted it to be downloadable
+without the data, given the size of the both .wav fileset and the .npy
+fileset.  Another consideration is the time it takes to produce the
+.npy files.  As a result, the code is flexible rather than elegant,
+and to work with it, you'll need at least a basic knowledge of python.

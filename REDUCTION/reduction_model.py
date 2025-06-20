@@ -3,6 +3,7 @@ import math
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from feature_extractor import FeatureExtractor
+import pickle
 
 
 class Reduction:
@@ -282,3 +283,14 @@ class Reduction:
 
         return formatted_underestimates
 
+    def saveModel(self):
+        pickle.dump(self.regression_model, open('englishModel.pkl', 'wb'))
+
+    
+    def loadModel(self):
+        self.regression_model = pickle.load(open('englishModel.pkl', 'rb'))
+
+
+
+
+        
