@@ -56,7 +56,7 @@ You can find data for training from scratch in
  to default_data.
 
 
-### 3. Two options for making preductions
+## 3. Two options for making preductions
 
 3a. Now that you have a trained model, you can use it to predict the
 reduction value for each frame.  Frames occur every 20ms.
@@ -89,8 +89,11 @@ utterance_predictions = reduction.predict_utterances(hubert_features,='utterance
 Install a recent version of python from www.python.org, and then 
 
 `
-_py -m pip install torch torchaudio numpy scikit-learn_
-_py -m pip install sox soundfile matplotlib_    # optional
+py -m pip install torch torchaudio numpy scikit-learn_
+`
+
+`
+py -m pip install sox soundfile matplotlib_    # optional
 `
 
 Note that you may need to use pip3 to get the modules in the right place, as in *pip3 install numpy*
