@@ -32,7 +32,7 @@ class FeatureExtractor:
         print(f"torch version: {torch.__version__}")
         print(f"torch audio version: {torchaudio.__version__}")
         print(f"device: {self.device}")
-        print(f"Sample Rate: {self.bundle.sample_rate}")
+        print(f"sample rate: {self.bundle.sample_rate}")
         print(f"model class: {self.model.__class__}")
 
     def get_transformation_layers(self, path, plot_layers=False):

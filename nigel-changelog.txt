@@ -1,9 +1,9 @@
 
 1. Added the following to __init__.py
 
-# This is here so that relative imports (from the current directory) work okay
-# from https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
-import os, sys; sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+  # This is here so that relative imports (from the current directory) work okay
+  # from https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
+  import os, sys; sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 2. removed the leading dot from
     from .feature_extractor import FeatureExtractor
@@ -16,17 +16,16 @@ import os, sys; sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 4. changed the comment of reduction.predict() to say that it takes in
 multiple tracks, and returns predictions for all the tracks
 
-5. added whitespace to reduction_model.py
+5. simplified the comments and added whitespace to reduction_model.py
 
-6. added baby-README.md
 
-7. edited README.md to point to the new location for downloading the
+6. edited README.md to point to the new location for downloading the
 default npy files, to fix typos in the function calls under 3a and 3b,
-to improve clarity, and to mention the existence of baby-README.md .
+to improve clarity, and to explain more about the code structure.
 
-8. added the tinytest folder, with 13 seconds of test data
+7. added the tinytest folder, with 13 seconds of test data
 
-9. added saveModel() and loadModel()  methods 
+8. added saveModel() and loadModel()  methods 
 
-10. added code to dump the predictions to a csv file, drivers/runRedu.py
+9. added code to dump the predictions to csv files: sampleDriver.py
 

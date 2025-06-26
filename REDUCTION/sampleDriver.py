@@ -1,5 +1,5 @@
 import numpy as np
-from ../reduction_model import Reduction
+from reduction_model import Reduction
 from pathlib import Path
 
 # runRedu.py
@@ -8,41 +8,46 @@ from pathlib import Path
 #    and save the results to a set of csv files, one per track
 #  This is to create features for use in the prosodic PCA workflow
 #    in the Midlevel Prosodic Features Toolkit
-#  Everything is hard-coded, to use English, and these specific files
-#    but feel free to edit
+#  Everything is hard-coded, to use English and these specific files,
+#    so feel free to edit
 #  call this from the command line with
 #    py runRedu.py
 
 
 def saveToFile(predictions, filename):
-    # each frame here is 20 ms, so we write it twice to align with the 
+    # each frame here is 20 ms, so we write it twice to align with the 10ms frame files
     ofd = open(filename, 'w')
-    timepoint = 0.10
+    twentyMsFrameNum = 0
     for item in predictions:
-       ofd.write(str(timepoint) + str(item) + "\n")	
-       timepoint = timepoint + 0.10
-       ofd.write(str(timepoint) + str(item) + "\n")	
-       timepoint = timepoint + 0.10
+        timestamp1 = 0.010 + 0.020 * twentyMsFrameNum 
+        timestamp2 = 0.020 + 0.020 * twentyMsFrameNum 
+        ofd.write(f"{timestamp1:.3f} \t {item:.2f} \n")	
+        ofd.write(f"{timestamp1:.3f} \t {item:.2f} \n")	
+        twentyMsFrameNum = twentyMsFrameNum + 1 
 
+# create a reduction-features filename; for now, just in the current directory 
 def createRedName(filename, trackChar):
-    # create a reduction-features file
-    basename = Path(filename).stem
-    return basename + "-" + trackChar + '.red'
-
+    return Path(filename).stem + "-" + trackChar + '.red'
 
 reduction = Reduction()
 reduction.loadModel()
 
 # derived from en-social/social.tl
-filelist = ['/cygdrive/c/nigel/en-social/utep00.au', \
-            '/cygdrive/c/nigel/en-social/utep04.au', \
-            '/cygdrive/c/nigel/en-social/utep05.au', \
-            '/cygdrive/c/nigel/en-social/utep07.au', \
-            '/cygdrive/c/nigel/en-social/utep08.au', \
-            '/cygdrive/c/nigel/en-social/utep21.au']
+# filenames relative to c:/nigel 
+filelist = ['c:/nigel/en-social/utep00.au']
+#filelist = ['c:/nigel/en-social/utep00.au', \
+#            'c:/nigel/en-social/utep04.au', \
+#            'c:/nigel/en-social/utep05.au', \
+#            'c:/nigel/en-social/utep07.au', \
+#            'c:/nigel/en-social/utep08.au', \
+#            'c:/nigel/en-social/utep21.au']
 
 for file in filelist:
-   feats = reduction.extract([file])
-   preds = reduction.predict(feats[0])
-   saveToFile(preds[0], createRedName(file, 'l'))
-   saveToFile(preds[1], createRedName(file, 'r'))
+    print(f"model class: extracting features for {file}")
+    feats = reduction.extract([file])
+    preds = reduction.predict(feats[0])
+
+    print(f"saving to file {createRedName(file, 'l')}")
+    saveToFile(preds[0], createRedName(file, 'l'))
+    print(f"saving to file {createRedName(file, 'r')}")
+    saveToFile(preds[1], createRedName(file, 'r'))

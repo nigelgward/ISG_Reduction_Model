@@ -20,7 +20,7 @@ class Reduction:
             audios - A list of paths to wav files that will be processed using HuBERT.
             save - A flag.  If true, the extracted features are saved as files
                 in the same directory as the audios, 
-                with the same name except having `features` appended.
+                with the same name except having `features.npy` appended.
 
         Returns:
             hubert_features - A list of the 12th layers of hubert features for every audio. 
@@ -32,7 +32,7 @@ class Reduction:
 
             features_predicted = self.hubert.get_transformation_layers(path)
             # if hubert_b, 12 layers of 20 ms frames of 768 features
-            # here we take just the 12th later
+            # here we take just the 12th layer
             hubert_features.append(features_predicted[-1])
 
             if save:
@@ -45,12 +45,11 @@ class Reduction:
 
 
     def fit(self,X,y):
-        """ Trains the linear regression model utilizing the features provided by the user whose labels are mapped based
-        on the tab-delimited txt.
+        """ Trains the linear regression model utilizing the targets from the labels file.
 
             Args:
                 X - A list of HuBERT frame lists utilized to fitting the Linear Regression model.
-                labels - A list of tab-delimited text file that contains the channel,start and end time, and reduction values for the utterances
+                labels - A list of tab-delimited text files that contains the channel,start and end time, and reduction values for the utterances
                          in the training data.
             Returns:
                 None
@@ -86,14 +85,12 @@ class Reduction:
                     training_data.append(X[i][track][j])
                     training_labels.append(label)
                     j += 1
-
-
         self.regression_model.fit(training_data,training_labels)
         return
 
 
     def default_fit(self):
-        """ Trains the linear regression model utilizing the data provided by ISG contained within the default_data directory.
+        """ Trains the linear regression model utilizing the default data.
 
             Args:
                 None
@@ -136,7 +133,7 @@ class Reduction:
 
 
     def predict(self,audio_features):
-        """ Predicts the reduction value per frame the given lists of HuBERT features.
+        """ Predicts the reduction value per frame from the given lists of HuBERT features.
 
             Args:
                 audio_features -  Lists of per-track features, each a list of frames of HuBERT features extracted from an audio.
@@ -154,8 +151,9 @@ class Reduction:
 
 
     def predict_utterances(self,audio_features,utterances):
-        """ Predicts the reduction value per utterances based on the given list of HuBERT features. The predicted
-        reduction value originates from the average of predicted frame value for each frame encompassed in the utterance region.
+        """ Predicts the reduction value for each of the specified regions.
+        In practice, these regions are typically words or phrases, rather than utterances. 
+        The predictions are the average of predicted frame value for each frame of the region.
         The utterance region is determined by the start and end times found in the `utterances` file.
 
             Args:
@@ -166,7 +164,6 @@ class Reduction:
         """
         predictions = []
 
-        # TODO Create a copy of the txt with the predicted labels
         filetxt = open(utterances)
         for line in filetxt:
 
@@ -199,7 +196,7 @@ class Reduction:
 
     
     def calculate_overestimates(self,predicted,utterances):
-        """ Returns the list of differences sorted by the highest overestimates accompanied with the timeframe for failure analysis.
+        """ To support failure analysis, returns the list of differences sorted by the highest overestimates accompanied with the timeframe.
 
             Args:
                 utterances - A path to tab-delimited text file that contains the channel, start and end times, and labels for the utterance to be predicted.
@@ -282,6 +279,7 @@ class Reduction:
         formatted_underestimates = [f"Difference: {underestimates[i]}, Channel: {channels[i]}, Start Time: {starts[i]}, End Time: {ends[i]}, Actual Reduction: {labels[i]}, Predicted Reduction: {predicted[i]}" for i in underestimates_index]
 
         return formatted_underestimates
+
 
     def saveModel(self):
         pickle.dump(self.regression_model, open('englishModel.pkl', 'wb'))
