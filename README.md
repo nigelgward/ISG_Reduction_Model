@@ -99,7 +99,7 @@ Note that *py* is probably better than _python_, since newer,
 depending on your configuration.
 
 
-##Code Notes
+### Code Notes
 
 After you fork the github repo, you will get a directory with a
 subdirectory called REDUCTION.  Within that, you'll find the python
@@ -139,28 +139,30 @@ large.  Accordingly the API is not very elegant.  However the code is
 flexible enough to modify, assuming a basic knowledge of python.
 
 
-## To Test the Workflow
+### To Test the Workflow
 
 
 `
 testFeats = reduction.extract(['tinytest/redu-enun-test.wav'])
 `
+
 `testPreds = reduction.predict(testFeats[0])
 `
-
-(Of course you wouldn't usually test using a file that was included in the training data.)
 
 Now you can visualize the predictions with, for example
 
 `
     import matplotlib.pyplot as plt
 `
+
 `
 plt.plot(testPreds)
 `
+
 `
 plt.show()
 `
+
 then you can line it up the human labels, visualizable with Elan, to gauge quality. 
 You can also compare the testPreds to the predictions we obtained, which are in tinytest/redu-enum-test-predictions.npy
 
