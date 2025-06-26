@@ -27,7 +27,7 @@ reduction.loadModel()
 
 2b. Train your own model using our data. First download npy files
 created at ISG, which are available at
-www.cs.utep.edu/nigel/reduction/ , indo default_data.  Then:
+www.cs.utep.edu/nigel/reduction/ , into default_data.  Then:
 
 
 `
@@ -40,26 +40,26 @@ reduction.default_fit()
 reduction.fit(X=hubert_features,y=['labels.txt'])
 `
 
-In general, once you have the HuBERT features available, you can
-choose to train the model on any subset of these features for which
-there are corresponding reduction labels. The labels format is a
-tab-delimited file in the order of Channel, Start Time, End Time, and
-Reduction Value. The Channel specifies Left or Right for Stereo audio
-and None for Mono audio. The Start and End Time specify the timeframe
-for utterances in seconds. The Reduction value specifies the
-annotator's value for the specified region of speech. There are
-examples in the default_data folder.
+In general, once you have the HuBERT features available, you can train
+ a model on any subset of these features for which there are
+ corresponding reduction labels. The labels format is a tab-delimited
+ file in the order of Channel, Start Time, End Time, and Reduction
+ Value. The Channel specifies Left or Right for Stereo audio and None
+ for Mono audio. The Start and End Time specify the region's timespan
+ in seconds. The Reduction value specifies the annotator's value for
+ the specified region. There are examples in the
+ default_data folder.
 
-You can find a complete set of data for training from scratch in
- http://www.cs.utep.edu/nigel/reduction/annotations.zip (792KB).
- By default, you'll want to extract all the audio files and label files to
- default_data.
+You can find data for training from scratch in
+ http://www.cs.utep.edu/nigel/reduction/annotations.zip (792KB).  By
+ default, you'll want to extract all the audio files and label files
+ to default_data.
 
 
 ### 3. Two options for making preductions
 
 3a. Now that you have a trained model, you can use it to predict the
-reduction found at each frame.  Frames occur every 20ms.
+reduction value for each frame.  Frames occur every 20ms.
 
 `
 frame_predictions = reduction.predict(hubert_features[0])
@@ -74,17 +74,17 @@ track of the audio.
  or phrases. For this, a tab-delimited text file needs to be provided
  specifying the regions of interest.  This file will contain lines
  specifying the Channel, Start Time, and End Time, as described under
- 2b.  If there is a fourth field, for the label, it will be ignored here.  **must there be at least a dummy value?**
+ 2b.  If there is a fourth field, for the label, it will be ignored here.  
 
 
 `
 utterance_predictions = reduction.predict_utterances(hubert_features,='utterance_timeframes.txt')
 `
 
-## Debugging Notes
+## Notes
 
 
-### Python Setup
+### Python Setup Notes
 
 Install a recent version of python from www.python.org, and then 
 
@@ -101,23 +101,23 @@ depending on your configuration.
 
 ##Code Notes
 
-After you get the code from [Javier Vazquez's
-Github](https://github.com/javi-vaz/ISG_Reduction_Model) and extract
-all the files, you will get a directory with a subdirectory called
-REDUCTION.  Within that, you'll find the python files and a directory
-called default_data.  It's easiest to invoke python from inside the
-REDUCTION subdirectory.  You'll also see documentation, a pickled
-model, and a tiny set of test data.
+After you fork the github repo, you will get a directory with a
+subdirectory called REDUCTION.  Within that, you'll find the python
+files and a directory called default_data.  The description above
+assumes that you've inovked py from inside the REDUCTION subdirectory.
+You'll also see documentation, a pickled model, and a tiny set of test
+data.
 
 The downstream model (decision head) here is simple, as most of the
-work is done by the HuBert features.  Thus, to predict the amount of
-reduction in an audio, it first needs to be converted into HuBERT
-features. This code provides easy access to the HuBERT model available
-in PyTorch. In particular, it uses the HuBERT Base model which
-extracts 12 layers of 768 features for every 20 ms of audio. The last
-layer is the one used here as it had the best performance in pilot
-tests. Note that, depending on whether the audio is mono or stereo,
-the HuBERT model will produce features for one or two channels.
+work is done by the HuBert features.  Thus, to predict the level of
+reduction in a speech file, it first needs to be converted into HuBERT
+features. Thus a major funcion of this code is to provide easy access
+to the HuBERT model available in PyTorch. In particular, it uses the
+HuBERT Base model which extracts 12 layers of 768 features for every
+20 ms of audio. The last layer is the one used here as it had the best
+performance in pilot tests. Note that, depending on whether the audio
+is mono or stereo, the HuBERT model will produce features for one or
+two channels.
 
 Note that reduction.extract() will return a list of torch tensors,
 each of which has three dimensions: number-of-tracks (usually 2),
@@ -133,10 +133,10 @@ only makes sense to use this as part of a workflow collecting
 statistics over substantial data, typically tens of minutes of dialog
 across multiple audio files.
 
-Note that at Github we include neither the audio files for training
-nor the derived npy files; this is only because they are so large.
-Accordingly the API is not very elegant.  However the code is flexible
-enough to modify, with only a basic knowledge of python.
+Note that in the Github repo we include neither the audio files for
+training nor the derived npy files; this is only because they are
+large.  Accordingly the API is not very elegant.  However the code is
+flexible enough to modify, assuming a basic knowledge of python.
 
 
 ## To Test the Workflow
@@ -144,7 +144,8 @@ enough to modify, with only a basic knowledge of python.
 
 `
 testFeats = reduction.extract(['tinytest/redu-enun-test.wav'])
-testPreds = reduction.predict(testFeats[0])
+`
+`testPreds = reduction.predict(testFeats[0])
 `
 
 (Of course you wouldn't usually test using a file that was included in the training data.)
@@ -153,11 +154,15 @@ Now you can visualize the predictions with, for example
 
 `
     import matplotlib.pyplot as plt
-    plt.plot(testPreds)
-    plt.show()
+`
+`
+plt.plot(testPreds)
+`
+`
+plt.show()
 `
 then you can line it up the human labels, visualizable with Elan, to gauge quality. 
-You can also compare the testPreds to the predictions we obtained, in redu-enum-test-predictions.npy
+You can also compare the testPreds to the predictions we obtained, which are in tinytest/redu-enum-test-predictions.npy
 
 ### Aside
 
