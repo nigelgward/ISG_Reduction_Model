@@ -4,10 +4,8 @@ This code is useful for estimating the level of phonetic reduction in speech dat
 
 To use this code, fork the repository and then follow the example usage below.  
 
-##Example Usage
 
-
-### 1. To extract the HuBERT features:
+## 1. To extract the HuBERT features:
 
 `
 from reduction_model import Reduction 
@@ -19,7 +17,7 @@ hubert_features = reduction.extract(['audio1.wav','audio2.wav','audio3.wav'])
 `
 
 
-### 2. Three options for training:
+## 2. Three options for training:
 
 2a. Load the pretrained English model:
 
