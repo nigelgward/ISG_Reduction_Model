@@ -12,7 +12,7 @@ from pathlib import Path
 #    so feel free to edit
 #  call this from the command line with
 #    py sampleDriver.py
-
+#         (in preferance to python or python3, on my machine)
 
 def saveToFile(predictions, filename):
     # each frame here is 20 ms, so we write it twice to align with the 10ms frame files
@@ -47,6 +47,7 @@ filelist = ['tinytest/redu-enun-test.wav']
 for file in filelist:
     print(f"model class: extracting features for {file}")
     feats = reduction.extract([file])
+    print(f"shape: {len(feats)}")
     preds = reduction.predict(feats[0])
 
     print(f"saving to file {createRedName(file, 'l')}")
