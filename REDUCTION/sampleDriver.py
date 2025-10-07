@@ -14,6 +14,7 @@ from pathlib import Path
 #    py sampleDriver.py
 #         (in preferance to python or python3, on my machine)
 
+# clumsily, this writes the file to the current directory
 def saveToFile(predictions, filename):
     # each frame here is 20 ms, so we write it twice to align with the 10ms frame files
     ofd = open(filename, 'w')
@@ -43,6 +44,7 @@ filelist = ['c:/nigel/en-social/utep00.au', \
             'c:/nigel/en-social/utep21.au']
 filelist = ['c:/nigel/ml2/midlevel/flowtest/21d.au']
 filelist = ['tinytest/redu-enun-test.wav']
+filelist = ['j:/steffi-data/MP+SP.wav']
 
 for file in filelist:
     print(f"model class: extracting features for {file}")
@@ -53,5 +55,5 @@ for file in filelist:
     print(f"saving to file {createRedName(file, 'l')}")
     saveToFile(preds[0], createRedName(file, 'l'))
     # uncomment these two if it's a stereo file 
-    print(f"saving to file {createRedName(file, 'r')}")
-    saveToFile(preds[1], createRedName(file, 'r'))
+    #print(f"saving to file {createRedName(file, 'r')}")
+    #saveToFile(preds[1], createRedName(file, 'r'))
