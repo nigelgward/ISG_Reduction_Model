@@ -45,6 +45,15 @@ filelist = ['c:/nigel/en-social/utep00.au', \
 filelist = ['c:/nigel/ml2/midlevel/flowtest/21d.au']
 filelist = ['tinytest/redu-enun-test.wav']
 filelist = ['j:/steffi-data/MP+SP.wav']
+filelist = ['j:/steffi-data/AD.wav', \
+            'j:/steffi-data/CB.wav', \
+            'j:/steffi-data/DH.wav', \
+            'j:/steffi-data/LP.wav', \
+            'j:/steffi-data/LS.wav', \
+            'j:/steffi-data/MF.wav', \
+            'j:/steffi-data/PL.wav', \
+            'j:/steffi-data/ZS.wav']
+            
 
 for file in filelist:
     print(f"model class: extracting features for {file}")

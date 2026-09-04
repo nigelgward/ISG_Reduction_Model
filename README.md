@@ -10,6 +10,7 @@ To use this code, fork the repository and then follow the example usage below.
 `
 from reduction_model import Reduction 
 .
+
 .
 reduction = Reduction()
 `
