@@ -6,6 +6,20 @@ from feature_extractor import FeatureExtractor
 import pickle
 
 
+def channel_to_track(channel):
+    """Map supported annotation channel names to a zero-based audio track."""
+    return 1 if "right" in channel.lower() else 0
+
+
+def predict_finite(regression_model, features):
+    """Predict while rejecting non-finite results from an ill-conditioned fit."""
+    with np.errstate(divide="ignore", over="ignore", invalid="ignore"):
+        predictions = regression_model.predict(np.asarray(features))
+    if not np.all(np.isfinite(predictions)):
+        raise ValueError("The regression model produced non-finite predictions.")
+    return predictions
+
+
 class Reduction:
 
     def __init__(self):
@@ -75,10 +89,9 @@ class Reduction:
                 label = int(label)
 
                 #If Mono, the channel selected will be 0
-                if channel == "Right":
-                    track = 1
-                else:
-                    track = 0
+                #Matches "Right" anywhere in the field (case-insensitive) since
+                #some label files use "Right" and others "ReductionRight"/"reducrtionRight"
+                track = channel_to_track(channel)
 
                 j = math.floor(float(start)*50) #Sets the index to the beginning of the labeled section
                 while j <= math.floor(float(end)*50) and j < len(X[i][track]): #Iterates through each frame relating to the labeled section
@@ -117,10 +130,9 @@ class Reduction:
                 label = int(label)
 
                 #If Mono, the channel selected will be 0
-                if channel == "Right":
-                    x = 1
-                else:
-                    x = 0
+                #Matches "Right" anywhere in the field (case-insensitive) since
+                #some label files use "Right" and others "ReductionRight"/"reducrtionRight"
+                x = channel_to_track(channel)
 
                 i = math.floor(float(start)*50) #Sets the index to the beginning of the labeled section
                 while i <= math.floor(float(end)*50) and i < len(last_layer[x]): #Iterates through each frame relating to the labeled section
@@ -142,10 +154,12 @@ class Reduction:
         """
         complete_predictions = []
         for i in range(len(audio_features)): #For every track in the audio features
-            predictions = []
-            for frame in audio_features[i]: #For every frame in an utterance region
-                frame = np.array(frame).reshape(1,-1)
-                predictions.append(self.regression_model.predict(frame)[0])
+            track_features = np.asarray(audio_features[i])
+            predictions = (
+                predict_finite(self.regression_model, track_features).tolist()
+                if len(track_features)
+                else []
+            )
             complete_predictions.append(predictions)
         return complete_predictions
 
@@ -168,16 +182,16 @@ class Reduction:
         for line in filetxt:
 
             try:
-                channel,start,end = line.split()
+                parts = line.split()
+                channel, start, end = parts[0], parts[1], parts[2]
             except: #Handling for erroneous format
                 print(f"Could not handle the following line during prediction:\n {line} The line will be skipped.\n")
                 continue
 
             #If Mono, the channel selected will be 0
-            if channel == "Right":
-                x = 1
-            else:
-                x = 0
+            #Matches "Right" anywhere in the field (case-insensitive) since
+            #some label files use "Right" and others "ReductionRight"/"reducrtionRight"
+            x = channel_to_track(channel)
 
             X = [] #Region of HuBERT frames to predicted over
             i = math.floor(float(start)*50) #Sets the index to the beginning of the labeled section
@@ -185,10 +199,9 @@ class Reduction:
                 X.append(audio_features[x][i])
                 i += 1
             
-            frame_predictions = []
-            for frame in X:
-                frame = np.array(frame).reshape(1,-1)
-                frame_predictions.append(self.regression_model.predict(frame)[0])
+            frame_predictions = (
+                predict_finite(self.regression_model, X) if X else []
+            )
             
             predictions.append(np.mean(frame_predictions))
 
@@ -281,14 +294,11 @@ class Reduction:
         return formatted_underestimates
 
 
-    def saveModel(self):
-        pickle.dump(self.regression_model, open('englishModel.pkl', 'wb'))
+    def saveModel(self, filepath='englishModel.pkl'):
+        with open(filepath, 'wb') as model_file:
+            pickle.dump(self.regression_model, model_file)
 
     
-    def loadModel(self):
-        self.regression_model = pickle.load(open('englishModel.pkl', 'rb'))
-
-
-
-
-        
+    def loadModel(self, filepath='englishModel.pkl'):
+        with open(filepath, 'rb') as model_file:
+            self.regression_model = pickle.load(model_file)
