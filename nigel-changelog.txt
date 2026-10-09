@@ -29,3 +29,6 @@ to improve clarity, and to explain more about the code structure.
 
 9. added code to dump the predictions to csv files: sampleDriver.py
 
+------
+
+10. edits to properly handle the Spanish data, plus an already-trained model for Spanish, courtesy of Vanessa Bolado
